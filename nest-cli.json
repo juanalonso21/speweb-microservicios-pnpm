@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": ".",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "."
+  },
+  "monorepo": true,
+  "root": "apps/speweb-microservicios-pnpm",
+  "projects": {
+    "client-gateway": {
+      "type": "application",
+      "root": "apps/client-gateway",
+      "entryFile": "main",
+      "sourceRoot": "apps/client-gateway/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/client-gateway/tsconfig.app.json"
+      }
+    },
+    "modulo-productos": {
+      "type": "application",
+      "root": "apps/modulo-productos",
+      "entryFile": "main",
+      "sourceRoot": "apps/modulo-productos/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/modulo-productos/tsconfig.app.json"
+      }
+    },
+    "modulo-usuarios": {
+      "type": "application",
+      "root": "apps/modulo-usuarios",
+      "entryFile": "main",
+      "sourceRoot": "apps/modulo-usuarios/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/modulo-usuarios/tsconfig.app.json"
+      }
+    },
+    "test-app-auto-final": {
+      "type": "application",
+      "root": "apps/test-app-auto-final",
+      "entryFile": "main",
+      "sourceRoot": "apps/test-app-auto-final/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/test-app-auto-final/tsconfig.app.json"
+      }
+    },
+    "test-app-manual-3": {
+      "type": "application",
+      "root": "apps/test-app-manual-3",
+      "entryFile": "main",
+      "sourceRoot": "apps/test-app-manual-3/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/test-app-manual-3/tsconfig.app.json"
+      }
+    },
+    "test-app-pnpm": {
+      "type": "application",
+      "root": "apps/test-app-pnpm",
+      "entryFile": "main",
+      "sourceRoot": "apps/test-app-pnpm/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/test-app-pnpm/tsconfig.app.json"
+      }
+    }
+  }
+}
