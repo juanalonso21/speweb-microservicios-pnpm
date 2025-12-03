@@ -37,6 +37,15 @@
         "tsConfigPath": "apps/modulo-usuarios/tsconfig.app.json"
       }
     },
+    "seed": {
+      "type": "application",
+      "root": "apps/seed",
+      "entryFile": "main",
+      "sourceRoot": "apps/seed/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/seed/tsconfig.app.json"
+      }
+    },
     "test-app-auto-final": {
       "type": "application",
       "root": "apps/test-app-auto-final",
