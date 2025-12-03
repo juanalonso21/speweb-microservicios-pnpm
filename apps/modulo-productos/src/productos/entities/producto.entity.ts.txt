@@ -1,0 +1,21 @@
+import { Column, ManyToMany, PrimaryGeneratedColumn, Entity, JoinTable } from "typeorm";
+import { Categoria } from "../../categorias/entities/categoria.entity";
+
+@Entity()
+export class Producto {
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
+    @Column({ length: 50})
+    name: string;
+    @Column({ length: 50})
+    description: string;
+    @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+    createdAt: Date;
+    @Column({ type: 'decimal', precision: 10, scale: 2 })
+    precio: number;
+    @Column({ length: 100})
+    direccionImagen: string;
+    @ManyToMany(() => Categoria, categoria => categoria.productos)
+    @JoinTable({ name: 'producto_categoria' })
+    categorias: Categoria[];
+}

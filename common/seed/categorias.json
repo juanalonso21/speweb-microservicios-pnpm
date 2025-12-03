@@ -1,0 +1,122 @@
+[
+  {
+    "id": "c1",
+    "name": "Smartphones",
+    "description": "Teléfonos inteligentes y accesorios",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "direccionImagen": "img/categorias/smartphones.jpg",
+    "productos": []
+  },
+  {
+    "id": "c2",
+    "name": "Laptops",
+    "description": "Computadoras portátiles",
+    "createdAt": "2025-01-02T00:00:00Z",
+    "direccionImagen": "img/categorias/laptops.jpg",
+    "productos": []
+  },
+  {
+    "id": "c3",
+    "name": "Audio",
+    "description": "Auriculares, parlantes y equipos de sonido",
+    "createdAt": "2025-01-03T00:00:00Z",
+    "direccionImagen": "img/categorias/audio.jpg",
+    "productos": []
+  },
+  {
+    "id": "c4",
+    "name": "Wearables",
+    "description": "Relojes y pulseras inteligentes",
+    "createdAt": "2025-01-04T00:00:00Z",
+    "direccionImagen": "img/categorias/wearables.jpg",
+    "productos": []
+  },
+  {
+    "id": "c5",
+    "name": "Tablets",
+    "description": "Tablets y accesorios",
+    "createdAt": "2025-01-05T00:00:00Z",
+    "direccionImagen": "img/categorias/tablets.jpg",
+    "productos": []
+  },
+  {
+    "id": "c6",
+    "name": "Monitores",
+    "description": "Monitores de alta resolución",
+    "createdAt": "2025-01-06T00:00:00Z",
+    "direccionImagen": "img/categorias/monitores.jpg",
+    "productos": []
+  },
+  {
+    "id": "c7",
+    "name": "Cámaras",
+    "description": "Cámaras fotográficas y de video",
+    "createdAt": "2025-01-07T00:00:00Z",
+    "direccionImagen": "img/categorias/camaras.jpg",
+    "productos": []
+  },
+  {
+    "id": "c8",
+    "name": "Redes",
+    "description": "Routers, repetidores y equipos de red",
+    "createdAt": "2025-01-08T00:00:00Z",
+    "direccionImagen": "img/categorias/redes.jpg",
+    "productos": []
+  },
+  {
+    "id": "c9",
+    "name": "Gaming",
+    "description": "Periféricos y accesorios para juegos",
+    "createdAt": "2025-01-09T00:00:00Z",
+    "direccionImagen": "img/categorias/gaming.jpg",
+    "productos": []
+  },
+  {
+    "id": "c10",
+    "name": "Almacenamiento",
+    "description": "Discos duros, SSD y memorias",
+    "createdAt": "2025-01-10T00:00:00Z",
+    "direccionImagen": "img/categorias/storage.jpg",
+    "productos": []
+  },
+  {
+    "id": "c11",
+    "name": "Componentes",
+    "description": "Partes internas de computadoras",
+    "createdAt": "2025-01-11T00:00:00Z",
+    "direccionImagen": "img/categorias/componentes.jpg",
+    "productos": []
+  },
+  {
+    "id": "c12",
+    "name": "Impresión",
+    "description": "Impresoras y suministros",
+    "createdAt": "2025-01-12T00:00:00Z",
+    "direccionImagen": "img/categorias/impresion.jpg",
+    "productos": []
+  },
+  {
+    "id": "c13",
+    "name": "Domótica",
+    "description": "Tecnología para el hogar inteligente",
+    "createdAt": "2025-01-13T00:00:00Z",
+    "direccionImagen": "img/categorias/domotica.jpg",
+    "productos": []
+  },
+  {
+    "id": "c14",
+    "name": "Software",
+    "description": "Aplicaciones y licencias",
+    "createdAt": "2025-01-14T00:00:00Z",
+    "direccionImagen": "img/categorias/software.jpg",
+    "productos": []
+  },
+  {
+    "id": "c15",
+    "name": "Accesorios",
+    "description": "Accesorios electrónicos",
+    "createdAt": "2025-01-15T00:00:00Z",
+    "direccionImagen": "img/categorias/accesorios.jpg",
+    "productos": []
+  }
+]

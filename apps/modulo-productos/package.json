@@ -16,6 +16,20 @@
         "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
         "test:e2e": "jest --config ./test/jest-e2e.json"
     },
-    "dependencies": {},
-    "devDependencies": {}
+    "devDependencies": {
+        "@types/pg": "^8.15.6",
+        "@prisma/client": "^7.0.1",
+        "prisma": "^7.0.1",
+        "dotenv-cli": "^11.0.0"
+    },
+    "dependencies": {
+        "@nestjs/common": "^11.1.9",
+        "@nestjs/config": "^4.0.2",
+        "@prisma/adapter-pg": "^7.0.1",
+        "@prisma/cli": "^2.20.1",
+        "@prisma/client": "^7.0.1",
+        "@speweb/common": "workspace:^",
+        "pg": "^8.16.3",
+        "prisma": "^7.0.1"
+    }
 }

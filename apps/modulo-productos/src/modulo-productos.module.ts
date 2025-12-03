@@ -1,10 +1,15 @@
 import { Module } from '@nestjs/common';
-import { ModuloProductosController } from './modulo-productos.controller';
-import { ModuloProductosService } from './modulo-productos.service';
+import { PrismaModule } from './prisma/prisma.module';
+import { ConfigModule } from '@nestjs/config';
+import { ProductosModule } from './productos/productos.module';
 
 @Module({
-  imports: [],
-  controllers: [ModuloProductosController],
-  providers: [ModuloProductosService],
+  imports: [
+    ConfigModule.forRoot(),
+    PrismaModule,
+    ProductosModule,
+  ],
+  controllers: [],
+  providers: [],
 })
-export class ModuloProductosModule {}
+export class ModuloProductosModule { }
