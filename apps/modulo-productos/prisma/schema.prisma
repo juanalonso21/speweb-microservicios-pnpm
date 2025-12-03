@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/client"
 }
 
 datasource db {
@@ -14,12 +13,14 @@ model Producto {
   createdAt       DateTime    @default(now())
   precio          Decimal     @db.Decimal(10, 2)
   direccionImagen String
+  categorias      Categoria[] @relation("ProductoCategorias")
 }
 
 model Categoria {
-  id              String      @id @default(uuid())
+  id              String     @id @default(uuid())
   name            String
   description     String
-  createdAt       DateTime    @default(now())
+  createdAt       DateTime   @default(now())
   direccionImagen String
+  productos       Producto[] @relation("ProductoCategorias")
 }

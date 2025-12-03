@@ -932,6 +932,67 @@ export namespace Prisma {
    */
 
 
+  /**
+   * Count Type ProductoCountOutputType
+   */
+
+  export type ProductoCountOutputType = {
+    categorias: number
+  }
+
+  export type ProductoCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    categorias?: boolean | ProductoCountOutputTypeCountCategoriasArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ProductoCountOutputType without action
+   */
+  export type ProductoCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductoCountOutputType
+     */
+    select?: ProductoCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ProductoCountOutputType without action
+   */
+  export type ProductoCountOutputTypeCountCategoriasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CategoriaWhereInput
+  }
+
+
+  /**
+   * Count Type CategoriaCountOutputType
+   */
+
+  export type CategoriaCountOutputType = {
+    productos: number
+  }
+
+  export type CategoriaCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    productos?: boolean | CategoriaCountOutputTypeCountProductosArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * CategoriaCountOutputType without action
+   */
+  export type CategoriaCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CategoriaCountOutputType
+     */
+    select?: CategoriaCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * CategoriaCountOutputType without action
+   */
+  export type CategoriaCountOutputTypeCountProductosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProductoWhereInput
+  }
+
 
   /**
    * Models
@@ -1143,6 +1204,8 @@ export namespace Prisma {
     createdAt?: boolean
     precio?: boolean
     direccionImagen?: boolean
+    categorias?: boolean | Producto$categoriasArgs<ExtArgs>
+    _count?: boolean | ProductoCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["producto"]>
 
   export type ProductoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1173,10 +1236,18 @@ export namespace Prisma {
   }
 
   export type ProductoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "createdAt" | "precio" | "direccionImagen", ExtArgs["result"]["producto"]>
+  export type ProductoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    categorias?: boolean | Producto$categoriasArgs<ExtArgs>
+    _count?: boolean | ProductoCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ProductoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type ProductoIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $ProductoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Producto"
-    objects: {}
+    objects: {
+      categorias: Prisma.$CategoriaPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
@@ -1578,6 +1649,7 @@ export namespace Prisma {
    */
   export interface Prisma__ProductoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    categorias<T extends Producto$categoriasArgs<ExtArgs> = {}>(args?: Subset<T, Producto$categoriasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1630,6 +1702,10 @@ export namespace Prisma {
      */
     omit?: ProductoOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductoInclude<ExtArgs> | null
+    /**
      * Filter, which Producto to fetch.
      */
     where: ProductoWhereUniqueInput
@@ -1648,6 +1724,10 @@ export namespace Prisma {
      */
     omit?: ProductoOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductoInclude<ExtArgs> | null
+    /**
      * Filter, which Producto to fetch.
      */
     where: ProductoWhereUniqueInput
@@ -1665,6 +1745,10 @@ export namespace Prisma {
      * Omit specific fields from the Producto
      */
     omit?: ProductoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductoInclude<ExtArgs> | null
     /**
      * Filter, which Producto to fetch.
      */
@@ -1714,6 +1798,10 @@ export namespace Prisma {
      */
     omit?: ProductoOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductoInclude<ExtArgs> | null
+    /**
      * Filter, which Producto to fetch.
      */
     where?: ProductoWhereInput
@@ -1762,6 +1850,10 @@ export namespace Prisma {
      */
     omit?: ProductoOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductoInclude<ExtArgs> | null
+    /**
      * Filter, which Productos to fetch.
      */
     where?: ProductoWhereInput
@@ -1804,6 +1896,10 @@ export namespace Prisma {
      * Omit specific fields from the Producto
      */
     omit?: ProductoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductoInclude<ExtArgs> | null
     /**
      * The data needed to create a Producto.
      */
@@ -1852,6 +1948,10 @@ export namespace Prisma {
      * Omit specific fields from the Producto
      */
     omit?: ProductoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductoInclude<ExtArgs> | null
     /**
      * The data needed to update a Producto.
      */
@@ -1919,6 +2019,10 @@ export namespace Prisma {
      */
     omit?: ProductoOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductoInclude<ExtArgs> | null
+    /**
      * The filter to search for the Producto to update in case it exists.
      */
     where: ProductoWhereUniqueInput
@@ -1945,6 +2049,10 @@ export namespace Prisma {
      */
     omit?: ProductoOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductoInclude<ExtArgs> | null
+    /**
      * Filter which Producto to delete.
      */
     where: ProductoWhereUniqueInput
@@ -1965,6 +2073,30 @@ export namespace Prisma {
   }
 
   /**
+   * Producto.categorias
+   */
+  export type Producto$categoriasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Categoria
+     */
+    select?: CategoriaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Categoria
+     */
+    omit?: CategoriaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CategoriaInclude<ExtArgs> | null
+    where?: CategoriaWhereInput
+    orderBy?: CategoriaOrderByWithRelationInput | CategoriaOrderByWithRelationInput[]
+    cursor?: CategoriaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CategoriaScalarFieldEnum | CategoriaScalarFieldEnum[]
+  }
+
+  /**
    * Producto without action
    */
   export type ProductoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1976,6 +2108,10 @@ export namespace Prisma {
      * Omit specific fields from the Producto
      */
     omit?: ProductoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductoInclude<ExtArgs> | null
   }
 
 
@@ -2143,6 +2279,8 @@ export namespace Prisma {
     description?: boolean
     createdAt?: boolean
     direccionImagen?: boolean
+    productos?: boolean | Categoria$productosArgs<ExtArgs>
+    _count?: boolean | CategoriaCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["categoria"]>
 
   export type CategoriaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2170,10 +2308,18 @@ export namespace Prisma {
   }
 
   export type CategoriaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "createdAt" | "direccionImagen", ExtArgs["result"]["categoria"]>
+  export type CategoriaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    productos?: boolean | Categoria$productosArgs<ExtArgs>
+    _count?: boolean | CategoriaCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type CategoriaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type CategoriaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $CategoriaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Categoria"
-    objects: {}
+    objects: {
+      productos: Prisma.$ProductoPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
@@ -2574,6 +2720,7 @@ export namespace Prisma {
    */
   export interface Prisma__CategoriaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    productos<T extends Categoria$productosArgs<ExtArgs> = {}>(args?: Subset<T, Categoria$productosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2625,6 +2772,10 @@ export namespace Prisma {
      */
     omit?: CategoriaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CategoriaInclude<ExtArgs> | null
+    /**
      * Filter, which Categoria to fetch.
      */
     where: CategoriaWhereUniqueInput
@@ -2643,6 +2794,10 @@ export namespace Prisma {
      */
     omit?: CategoriaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CategoriaInclude<ExtArgs> | null
+    /**
      * Filter, which Categoria to fetch.
      */
     where: CategoriaWhereUniqueInput
@@ -2660,6 +2815,10 @@ export namespace Prisma {
      * Omit specific fields from the Categoria
      */
     omit?: CategoriaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CategoriaInclude<ExtArgs> | null
     /**
      * Filter, which Categoria to fetch.
      */
@@ -2709,6 +2868,10 @@ export namespace Prisma {
      */
     omit?: CategoriaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CategoriaInclude<ExtArgs> | null
+    /**
      * Filter, which Categoria to fetch.
      */
     where?: CategoriaWhereInput
@@ -2757,6 +2920,10 @@ export namespace Prisma {
      */
     omit?: CategoriaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CategoriaInclude<ExtArgs> | null
+    /**
      * Filter, which Categorias to fetch.
      */
     where?: CategoriaWhereInput
@@ -2799,6 +2966,10 @@ export namespace Prisma {
      * Omit specific fields from the Categoria
      */
     omit?: CategoriaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CategoriaInclude<ExtArgs> | null
     /**
      * The data needed to create a Categoria.
      */
@@ -2847,6 +3018,10 @@ export namespace Prisma {
      * Omit specific fields from the Categoria
      */
     omit?: CategoriaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CategoriaInclude<ExtArgs> | null
     /**
      * The data needed to update a Categoria.
      */
@@ -2914,6 +3089,10 @@ export namespace Prisma {
      */
     omit?: CategoriaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CategoriaInclude<ExtArgs> | null
+    /**
      * The filter to search for the Categoria to update in case it exists.
      */
     where: CategoriaWhereUniqueInput
@@ -2940,6 +3119,10 @@ export namespace Prisma {
      */
     omit?: CategoriaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CategoriaInclude<ExtArgs> | null
+    /**
      * Filter which Categoria to delete.
      */
     where: CategoriaWhereUniqueInput
@@ -2960,6 +3143,30 @@ export namespace Prisma {
   }
 
   /**
+   * Categoria.productos
+   */
+  export type Categoria$productosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Producto
+     */
+    select?: ProductoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Producto
+     */
+    omit?: ProductoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductoInclude<ExtArgs> | null
+    where?: ProductoWhereInput
+    orderBy?: ProductoOrderByWithRelationInput | ProductoOrderByWithRelationInput[]
+    cursor?: ProductoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProductoScalarFieldEnum | ProductoScalarFieldEnum[]
+  }
+
+  /**
    * Categoria without action
    */
   export type CategoriaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2971,6 +3178,10 @@ export namespace Prisma {
      * Omit specific fields from the Categoria
      */
     omit?: CategoriaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CategoriaInclude<ExtArgs> | null
   }
 
 
@@ -3101,6 +3312,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Producto"> | Date | string
     precio?: DecimalFilter<"Producto"> | Decimal | DecimalJsLike | number | string
     direccionImagen?: StringFilter<"Producto"> | string
+    categorias?: CategoriaListRelationFilter
   }
 
   export type ProductoOrderByWithRelationInput = {
@@ -3110,6 +3322,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     precio?: SortOrder
     direccionImagen?: SortOrder
+    categorias?: CategoriaOrderByRelationAggregateInput
   }
 
   export type ProductoWhereUniqueInput = Prisma.AtLeast<{
@@ -3122,6 +3335,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Producto"> | Date | string
     precio?: DecimalFilter<"Producto"> | Decimal | DecimalJsLike | number | string
     direccionImagen?: StringFilter<"Producto"> | string
+    categorias?: CategoriaListRelationFilter
   }, "id">
 
   export type ProductoOrderByWithAggregationInput = {
@@ -3159,6 +3373,7 @@ export namespace Prisma {
     description?: StringFilter<"Categoria"> | string
     createdAt?: DateTimeFilter<"Categoria"> | Date | string
     direccionImagen?: StringFilter<"Categoria"> | string
+    productos?: ProductoListRelationFilter
   }
 
   export type CategoriaOrderByWithRelationInput = {
@@ -3167,6 +3382,7 @@ export namespace Prisma {
     description?: SortOrder
     createdAt?: SortOrder
     direccionImagen?: SortOrder
+    productos?: ProductoOrderByRelationAggregateInput
   }
 
   export type CategoriaWhereUniqueInput = Prisma.AtLeast<{
@@ -3178,6 +3394,7 @@ export namespace Prisma {
     description?: StringFilter<"Categoria"> | string
     createdAt?: DateTimeFilter<"Categoria"> | Date | string
     direccionImagen?: StringFilter<"Categoria"> | string
+    productos?: ProductoListRelationFilter
   }, "id">
 
   export type CategoriaOrderByWithAggregationInput = {
@@ -3209,6 +3426,7 @@ export namespace Prisma {
     createdAt?: Date | string
     precio: Decimal | DecimalJsLike | number | string
     direccionImagen: string
+    categorias?: CategoriaCreateNestedManyWithoutProductosInput
   }
 
   export type ProductoUncheckedCreateInput = {
@@ -3218,6 +3436,7 @@ export namespace Prisma {
     createdAt?: Date | string
     precio: Decimal | DecimalJsLike | number | string
     direccionImagen: string
+    categorias?: CategoriaUncheckedCreateNestedManyWithoutProductosInput
   }
 
   export type ProductoUpdateInput = {
@@ -3227,6 +3446,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     precio?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     direccionImagen?: StringFieldUpdateOperationsInput | string
+    categorias?: CategoriaUpdateManyWithoutProductosNestedInput
   }
 
   export type ProductoUncheckedUpdateInput = {
@@ -3236,6 +3456,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     precio?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     direccionImagen?: StringFieldUpdateOperationsInput | string
+    categorias?: CategoriaUncheckedUpdateManyWithoutProductosNestedInput
   }
 
   export type ProductoCreateManyInput = {
@@ -3271,6 +3492,7 @@ export namespace Prisma {
     description: string
     createdAt?: Date | string
     direccionImagen: string
+    productos?: ProductoCreateNestedManyWithoutCategoriasInput
   }
 
   export type CategoriaUncheckedCreateInput = {
@@ -3279,6 +3501,7 @@ export namespace Prisma {
     description: string
     createdAt?: Date | string
     direccionImagen: string
+    productos?: ProductoUncheckedCreateNestedManyWithoutCategoriasInput
   }
 
   export type CategoriaUpdateInput = {
@@ -3287,6 +3510,7 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     direccionImagen?: StringFieldUpdateOperationsInput | string
+    productos?: ProductoUpdateManyWithoutCategoriasNestedInput
   }
 
   export type CategoriaUncheckedUpdateInput = {
@@ -3295,6 +3519,7 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     direccionImagen?: StringFieldUpdateOperationsInput | string
+    productos?: ProductoUncheckedUpdateManyWithoutCategoriasNestedInput
   }
 
   export type CategoriaCreateManyInput = {
@@ -3356,6 +3581,16 @@ export namespace Prisma {
     gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type CategoriaListRelationFilter = {
+    every?: CategoriaWhereInput
+    some?: CategoriaWhereInput
+    none?: CategoriaWhereInput
+  }
+
+  export type CategoriaOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type ProductoCountOrderByAggregateInput = {
@@ -3441,6 +3676,16 @@ export namespace Prisma {
     _max?: NestedDecimalFilter<$PrismaModel>
   }
 
+  export type ProductoListRelationFilter = {
+    every?: ProductoWhereInput
+    some?: ProductoWhereInput
+    none?: ProductoWhereInput
+  }
+
+  export type ProductoOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type CategoriaCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -3465,6 +3710,18 @@ export namespace Prisma {
     direccionImagen?: SortOrder
   }
 
+  export type CategoriaCreateNestedManyWithoutProductosInput = {
+    create?: XOR<CategoriaCreateWithoutProductosInput, CategoriaUncheckedCreateWithoutProductosInput> | CategoriaCreateWithoutProductosInput[] | CategoriaUncheckedCreateWithoutProductosInput[]
+    connectOrCreate?: CategoriaCreateOrConnectWithoutProductosInput | CategoriaCreateOrConnectWithoutProductosInput[]
+    connect?: CategoriaWhereUniqueInput | CategoriaWhereUniqueInput[]
+  }
+
+  export type CategoriaUncheckedCreateNestedManyWithoutProductosInput = {
+    create?: XOR<CategoriaCreateWithoutProductosInput, CategoriaUncheckedCreateWithoutProductosInput> | CategoriaCreateWithoutProductosInput[] | CategoriaUncheckedCreateWithoutProductosInput[]
+    connectOrCreate?: CategoriaCreateOrConnectWithoutProductosInput | CategoriaCreateOrConnectWithoutProductosInput[]
+    connect?: CategoriaWhereUniqueInput | CategoriaWhereUniqueInput[]
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -3479,6 +3736,70 @@ export namespace Prisma {
     decrement?: Decimal | DecimalJsLike | number | string
     multiply?: Decimal | DecimalJsLike | number | string
     divide?: Decimal | DecimalJsLike | number | string
+  }
+
+  export type CategoriaUpdateManyWithoutProductosNestedInput = {
+    create?: XOR<CategoriaCreateWithoutProductosInput, CategoriaUncheckedCreateWithoutProductosInput> | CategoriaCreateWithoutProductosInput[] | CategoriaUncheckedCreateWithoutProductosInput[]
+    connectOrCreate?: CategoriaCreateOrConnectWithoutProductosInput | CategoriaCreateOrConnectWithoutProductosInput[]
+    upsert?: CategoriaUpsertWithWhereUniqueWithoutProductosInput | CategoriaUpsertWithWhereUniqueWithoutProductosInput[]
+    set?: CategoriaWhereUniqueInput | CategoriaWhereUniqueInput[]
+    disconnect?: CategoriaWhereUniqueInput | CategoriaWhereUniqueInput[]
+    delete?: CategoriaWhereUniqueInput | CategoriaWhereUniqueInput[]
+    connect?: CategoriaWhereUniqueInput | CategoriaWhereUniqueInput[]
+    update?: CategoriaUpdateWithWhereUniqueWithoutProductosInput | CategoriaUpdateWithWhereUniqueWithoutProductosInput[]
+    updateMany?: CategoriaUpdateManyWithWhereWithoutProductosInput | CategoriaUpdateManyWithWhereWithoutProductosInput[]
+    deleteMany?: CategoriaScalarWhereInput | CategoriaScalarWhereInput[]
+  }
+
+  export type CategoriaUncheckedUpdateManyWithoutProductosNestedInput = {
+    create?: XOR<CategoriaCreateWithoutProductosInput, CategoriaUncheckedCreateWithoutProductosInput> | CategoriaCreateWithoutProductosInput[] | CategoriaUncheckedCreateWithoutProductosInput[]
+    connectOrCreate?: CategoriaCreateOrConnectWithoutProductosInput | CategoriaCreateOrConnectWithoutProductosInput[]
+    upsert?: CategoriaUpsertWithWhereUniqueWithoutProductosInput | CategoriaUpsertWithWhereUniqueWithoutProductosInput[]
+    set?: CategoriaWhereUniqueInput | CategoriaWhereUniqueInput[]
+    disconnect?: CategoriaWhereUniqueInput | CategoriaWhereUniqueInput[]
+    delete?: CategoriaWhereUniqueInput | CategoriaWhereUniqueInput[]
+    connect?: CategoriaWhereUniqueInput | CategoriaWhereUniqueInput[]
+    update?: CategoriaUpdateWithWhereUniqueWithoutProductosInput | CategoriaUpdateWithWhereUniqueWithoutProductosInput[]
+    updateMany?: CategoriaUpdateManyWithWhereWithoutProductosInput | CategoriaUpdateManyWithWhereWithoutProductosInput[]
+    deleteMany?: CategoriaScalarWhereInput | CategoriaScalarWhereInput[]
+  }
+
+  export type ProductoCreateNestedManyWithoutCategoriasInput = {
+    create?: XOR<ProductoCreateWithoutCategoriasInput, ProductoUncheckedCreateWithoutCategoriasInput> | ProductoCreateWithoutCategoriasInput[] | ProductoUncheckedCreateWithoutCategoriasInput[]
+    connectOrCreate?: ProductoCreateOrConnectWithoutCategoriasInput | ProductoCreateOrConnectWithoutCategoriasInput[]
+    connect?: ProductoWhereUniqueInput | ProductoWhereUniqueInput[]
+  }
+
+  export type ProductoUncheckedCreateNestedManyWithoutCategoriasInput = {
+    create?: XOR<ProductoCreateWithoutCategoriasInput, ProductoUncheckedCreateWithoutCategoriasInput> | ProductoCreateWithoutCategoriasInput[] | ProductoUncheckedCreateWithoutCategoriasInput[]
+    connectOrCreate?: ProductoCreateOrConnectWithoutCategoriasInput | ProductoCreateOrConnectWithoutCategoriasInput[]
+    connect?: ProductoWhereUniqueInput | ProductoWhereUniqueInput[]
+  }
+
+  export type ProductoUpdateManyWithoutCategoriasNestedInput = {
+    create?: XOR<ProductoCreateWithoutCategoriasInput, ProductoUncheckedCreateWithoutCategoriasInput> | ProductoCreateWithoutCategoriasInput[] | ProductoUncheckedCreateWithoutCategoriasInput[]
+    connectOrCreate?: ProductoCreateOrConnectWithoutCategoriasInput | ProductoCreateOrConnectWithoutCategoriasInput[]
+    upsert?: ProductoUpsertWithWhereUniqueWithoutCategoriasInput | ProductoUpsertWithWhereUniqueWithoutCategoriasInput[]
+    set?: ProductoWhereUniqueInput | ProductoWhereUniqueInput[]
+    disconnect?: ProductoWhereUniqueInput | ProductoWhereUniqueInput[]
+    delete?: ProductoWhereUniqueInput | ProductoWhereUniqueInput[]
+    connect?: ProductoWhereUniqueInput | ProductoWhereUniqueInput[]
+    update?: ProductoUpdateWithWhereUniqueWithoutCategoriasInput | ProductoUpdateWithWhereUniqueWithoutCategoriasInput[]
+    updateMany?: ProductoUpdateManyWithWhereWithoutCategoriasInput | ProductoUpdateManyWithWhereWithoutCategoriasInput[]
+    deleteMany?: ProductoScalarWhereInput | ProductoScalarWhereInput[]
+  }
+
+  export type ProductoUncheckedUpdateManyWithoutCategoriasNestedInput = {
+    create?: XOR<ProductoCreateWithoutCategoriasInput, ProductoUncheckedCreateWithoutCategoriasInput> | ProductoCreateWithoutCategoriasInput[] | ProductoUncheckedCreateWithoutCategoriasInput[]
+    connectOrCreate?: ProductoCreateOrConnectWithoutCategoriasInput | ProductoCreateOrConnectWithoutCategoriasInput[]
+    upsert?: ProductoUpsertWithWhereUniqueWithoutCategoriasInput | ProductoUpsertWithWhereUniqueWithoutCategoriasInput[]
+    set?: ProductoWhereUniqueInput | ProductoWhereUniqueInput[]
+    disconnect?: ProductoWhereUniqueInput | ProductoWhereUniqueInput[]
+    delete?: ProductoWhereUniqueInput | ProductoWhereUniqueInput[]
+    connect?: ProductoWhereUniqueInput | ProductoWhereUniqueInput[]
+    update?: ProductoUpdateWithWhereUniqueWithoutCategoriasInput | ProductoUpdateWithWhereUniqueWithoutCategoriasInput[]
+    updateMany?: ProductoUpdateManyWithWhereWithoutCategoriasInput | ProductoUpdateManyWithWhereWithoutCategoriasInput[]
+    deleteMany?: ProductoScalarWhereInput | ProductoScalarWhereInput[]
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -3573,6 +3894,156 @@ export namespace Prisma {
     _sum?: NestedDecimalFilter<$PrismaModel>
     _min?: NestedDecimalFilter<$PrismaModel>
     _max?: NestedDecimalFilter<$PrismaModel>
+  }
+
+  export type CategoriaCreateWithoutProductosInput = {
+    id?: string
+    name: string
+    description: string
+    createdAt?: Date | string
+    direccionImagen: string
+  }
+
+  export type CategoriaUncheckedCreateWithoutProductosInput = {
+    id?: string
+    name: string
+    description: string
+    createdAt?: Date | string
+    direccionImagen: string
+  }
+
+  export type CategoriaCreateOrConnectWithoutProductosInput = {
+    where: CategoriaWhereUniqueInput
+    create: XOR<CategoriaCreateWithoutProductosInput, CategoriaUncheckedCreateWithoutProductosInput>
+  }
+
+  export type CategoriaUpsertWithWhereUniqueWithoutProductosInput = {
+    where: CategoriaWhereUniqueInput
+    update: XOR<CategoriaUpdateWithoutProductosInput, CategoriaUncheckedUpdateWithoutProductosInput>
+    create: XOR<CategoriaCreateWithoutProductosInput, CategoriaUncheckedCreateWithoutProductosInput>
+  }
+
+  export type CategoriaUpdateWithWhereUniqueWithoutProductosInput = {
+    where: CategoriaWhereUniqueInput
+    data: XOR<CategoriaUpdateWithoutProductosInput, CategoriaUncheckedUpdateWithoutProductosInput>
+  }
+
+  export type CategoriaUpdateManyWithWhereWithoutProductosInput = {
+    where: CategoriaScalarWhereInput
+    data: XOR<CategoriaUpdateManyMutationInput, CategoriaUncheckedUpdateManyWithoutProductosInput>
+  }
+
+  export type CategoriaScalarWhereInput = {
+    AND?: CategoriaScalarWhereInput | CategoriaScalarWhereInput[]
+    OR?: CategoriaScalarWhereInput[]
+    NOT?: CategoriaScalarWhereInput | CategoriaScalarWhereInput[]
+    id?: StringFilter<"Categoria"> | string
+    name?: StringFilter<"Categoria"> | string
+    description?: StringFilter<"Categoria"> | string
+    createdAt?: DateTimeFilter<"Categoria"> | Date | string
+    direccionImagen?: StringFilter<"Categoria"> | string
+  }
+
+  export type ProductoCreateWithoutCategoriasInput = {
+    id?: string
+    name: string
+    description: string
+    createdAt?: Date | string
+    precio: Decimal | DecimalJsLike | number | string
+    direccionImagen: string
+  }
+
+  export type ProductoUncheckedCreateWithoutCategoriasInput = {
+    id?: string
+    name: string
+    description: string
+    createdAt?: Date | string
+    precio: Decimal | DecimalJsLike | number | string
+    direccionImagen: string
+  }
+
+  export type ProductoCreateOrConnectWithoutCategoriasInput = {
+    where: ProductoWhereUniqueInput
+    create: XOR<ProductoCreateWithoutCategoriasInput, ProductoUncheckedCreateWithoutCategoriasInput>
+  }
+
+  export type ProductoUpsertWithWhereUniqueWithoutCategoriasInput = {
+    where: ProductoWhereUniqueInput
+    update: XOR<ProductoUpdateWithoutCategoriasInput, ProductoUncheckedUpdateWithoutCategoriasInput>
+    create: XOR<ProductoCreateWithoutCategoriasInput, ProductoUncheckedCreateWithoutCategoriasInput>
+  }
+
+  export type ProductoUpdateWithWhereUniqueWithoutCategoriasInput = {
+    where: ProductoWhereUniqueInput
+    data: XOR<ProductoUpdateWithoutCategoriasInput, ProductoUncheckedUpdateWithoutCategoriasInput>
+  }
+
+  export type ProductoUpdateManyWithWhereWithoutCategoriasInput = {
+    where: ProductoScalarWhereInput
+    data: XOR<ProductoUpdateManyMutationInput, ProductoUncheckedUpdateManyWithoutCategoriasInput>
+  }
+
+  export type ProductoScalarWhereInput = {
+    AND?: ProductoScalarWhereInput | ProductoScalarWhereInput[]
+    OR?: ProductoScalarWhereInput[]
+    NOT?: ProductoScalarWhereInput | ProductoScalarWhereInput[]
+    id?: StringFilter<"Producto"> | string
+    name?: StringFilter<"Producto"> | string
+    description?: StringFilter<"Producto"> | string
+    createdAt?: DateTimeFilter<"Producto"> | Date | string
+    precio?: DecimalFilter<"Producto"> | Decimal | DecimalJsLike | number | string
+    direccionImagen?: StringFilter<"Producto"> | string
+  }
+
+  export type CategoriaUpdateWithoutProductosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    direccionImagen?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CategoriaUncheckedUpdateWithoutProductosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    direccionImagen?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CategoriaUncheckedUpdateManyWithoutProductosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    direccionImagen?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProductoUpdateWithoutCategoriasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    precio?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    direccionImagen?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProductoUncheckedUpdateWithoutCategoriasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    precio?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    direccionImagen?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProductoUncheckedUpdateManyWithoutCategoriasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    precio?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    direccionImagen?: StringFieldUpdateOperationsInput | string
   }
 
 
