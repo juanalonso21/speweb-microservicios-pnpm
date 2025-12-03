@@ -173,12 +173,18 @@ importers:
         specifier: ^7.0.1
         version: 7.0.1(@types/react@19.2.7)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3)
     devDependencies:
+      '@prisma/config':
+        specifier: ^7.0.1
+        version: 7.0.1
       '@types/pg':
         specifier: ^8.15.6
         version: 8.15.6
       dotenv-cli:
         specifier: ^11.0.0
         version: 11.0.0
+      ts-node:
+        specifier: ^10.9.2
+        version: 10.9.2(@swc/core@1.15.3)(@types/node@22.19.1)(typescript@5.9.3)
 
   apps/modulo-usuarios: {}
 
