@@ -7,7 +7,8 @@ services:
     environment: 
     volumes:
       - postgres_data:/var/libs/postgresql
-    port: 5400:5432
+    ports:
+      - "5400:5432"
     networks:
       - red-speweb
   volumes:
@@ -25,7 +26,7 @@ services:
     environment:
       CONTEXT: /home/juan/devops/DAW/juan-developer/proyectos/speweb-microservicios-pnpm 
       POSTGRES_HOST: ${DB_HOST}
-      POSGRES_PORT: ${DB_PORT}
+      POSTGRES_PORT: ${DB_PORT}
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_NAME}
