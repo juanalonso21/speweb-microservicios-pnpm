@@ -1,0 +1,32 @@
+services:
+  postgresProductos:
+    image: postgres:latest
+    container_name: modulo-productos
+    env_file:
+      - .env
+    environment: 
+    volumes:
+      - postgres_data:/var/libs/postgresql
+    port: 5400:5432
+    networks:
+      - red-speweb
+  volumes:
+    postgres_data:
+  networks:
+  modulo-usuarios: 
+    profiles: ["usuarios"]
+    ports:
+      - "3001:3001"
+    env_file:
+      - .env
+    build:
+      context: /home/juan/devops/DAW/juan-developer/proyectos/speweb-microservicios-pnpm
+      dockerfile: /apps/modulo-productos/deploy/Dockerfile
+    environment:
+      CONTEXT: /home/juan/devops/DAW/juan-developer/proyectos/speweb-microservicios-pnpm 
+      POSTGRES_HOST: ${DB_HOST}
+      POSGRES_PORT: ${DB_PORT}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    
