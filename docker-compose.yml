@@ -1,0 +1,38 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: postgres-productos
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USERNAME:-usuario}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-password}
+      POSTGRES_DB: ${DB_NAME:-speweb_db}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    networks:
+      - speweb-network
+
+  modulo-productos:
+    build:
+      context: .
+      dockerfile: apps/modulo-productos/Dockerfile
+    container_name: modulo-productos
+    restart: always
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgres://${DB_USERNAME:-usuario}:${DB_PASSWORD:-password}@postgres:5432/${DB_NAME:-speweb_db}?schema=public
+      PORT: 3002
+    ports:
+      - "3002:3002"
+    networks:
+      - speweb-network
+
+volumes:
+  postgres_data:
+
+networks:
+  speweb-network:
+    driver: bridge
